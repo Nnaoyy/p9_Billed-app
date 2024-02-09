@@ -27,13 +27,17 @@ export default class {
     $('#modaleFile').modal('show')
   }
 
+  antiChrono = (a, b) => ((a.date < b.date) ? 1 : -1)
+
   getBills = () => {
     if (this.store) {
       return this.store
       .bills()
       .list()
       .then(snapshot => {
+        console.log(snapshot)
         const bills = snapshot
+          .sort(this.antiChrono)
           .map(doc => {
             try {
               return {
