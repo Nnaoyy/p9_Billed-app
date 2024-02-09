@@ -21,12 +21,7 @@ const row = (bill) => {
 
 const rows = (data) => {
   if (data && data.length) {
-    //fonction de tri à bulle
-    const antiChrono = (a, b) => ((a.date < b.date) ? 1 : -1)
-    //Tri des data
-    const dataSorted = data.sort(antiChrono)
-    //retourne html des bills triées
-    return dataSorted.map(bill => row(bill))
+    return data.map(bill => row(bill))
   } else return ""
 }
 
